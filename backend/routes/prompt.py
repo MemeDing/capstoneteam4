@@ -7,7 +7,7 @@ router = APIRouter()
 def health_check():
     return
 
-@router.post("/text", summary="Prompt LLM with text", description="Send a text prompt to the LLM and receive the LLMs response.")
+@router.post("/text", summary="Prompt LLM with text", description="Send a text prompt to the LLM and receive the LLMs response.", response_model=TextRequest)
 def text(request: TextRequest):
     # TODO: Send text to the LLM and return the response
-    return {"received_text": request.text}
+    return {"text": request.text}
