@@ -21,3 +21,8 @@ git clone git@github.com:MemeDing/capstoneteam4.git
 
 ## Swagger Documentation / Testing
 * Once the backend is running, navigate to http://127.0.0.1:3001/docs (or whatever IP and port you're running the backend on)
+
+## Pull Requests
+* When creating a Pull Request, there is a short pipeline that will run and check if the backend service runs properly.
+* It will use the Linux scripts on a GitHub ubuntu machine to install and run the backend service, then run a GET request to check if /prompt/ and /history/ work properly.
+* This ensures that the backend service still works properly and that the build scripts (for Linux) are functioning properly.
