@@ -6,8 +6,14 @@
 git clone git@github.com:MemeDing/capstoneteam4.git
 ```
 2. Initialize your Python virtual environment
-    * **Linux:** Run *install-venv.sh*
-    * **Windows:** Run *install-venv.bat*
+    * **Linux:** Run *install-venv.sh*, then:
+    ```
+    source venv/bin/activate
+    ```
+    * **Windows:** Run *install-venv.bat*, then:
+    ```
+    venv/Scripts/activate
+    ```
 
 3. Run the backend:
     * **Linux:** Run *run-backend.sh*
