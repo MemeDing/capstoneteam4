@@ -45,6 +45,7 @@ jobs:
             response=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3001$endpoint)
             if [ "$response" != "200" ]; then
               echo "❌ Endpoint $endpoint returned $response"
+              exit 1
             else
               echo "✔ Endpoint $endpoint is healthy"
             fi
