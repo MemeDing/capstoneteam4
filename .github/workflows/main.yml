@@ -38,8 +38,8 @@ jobs:
       - name: Validate API Endpoints
         run: |
           endpoints=(
-            "/prompt"
-            "/history"
+            "/prompt/"
+            "/history/"
           )
           for endpoint in "${endpoints[@]}"; do
             response=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3001$endpoint)
