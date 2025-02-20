@@ -9,8 +9,10 @@ from pymongo.server_api import ServerApi
 
 uri = "mongodb+srv://baggiop1:PEBcap04!@cluster0.s8sih.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-# Create a new client and connect to the server
+# MongoDB setup
 client = MongoClient(uri, server_api=ServerApi('1'))
+db = client["Improving_Intelligence_Confidence"]
+history_collection = db["userHistory"]
 
 # Send a ping to confirm a successful connection
 try:
