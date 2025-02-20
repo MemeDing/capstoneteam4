@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from backend.models.requests import TextRequest
+from backend.llms.llm import generate_response
 
 router = APIRouter()
 
@@ -10,4 +11,5 @@ def health_check():
 @router.post("/text", summary="Prompt LLM with text", description="Send a text prompt to the LLM and receive the LLMs response.", response_model=TextRequest)
 def text(request: TextRequest):
     # TODO: Send text to the LLM and return the response
-    return {"text": request.text}
+    llm_response = generate_response(request.text)
+    return {"text": llm_response}
