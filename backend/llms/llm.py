@@ -23,5 +23,5 @@ model = AutoModelForCausalLM.from_pretrained(
 
 def generate_response(prompt):
     inputs = tokenizer(prompt, return_tensors="pt", max_length=2048, truncation=True).to("cuda:0")
-    output = model.generate(**inputs, max_length=2048)
+    output = model.generate(**inputs, repetition_penalty=1.2, max_new_tokens=200, temperature=0.5)
     return tokenizer.decode(output[0], skip_special_tokens=True)
