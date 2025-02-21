@@ -14,13 +14,13 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     load_in_4bit=True
-)
+).to("cuda:0")
 
-model = torch.compile(model)
+#model = torch.compile(model)
 
-torch.set_num_threads(2)
+#torch.set_num_threads(2)
 
 def generate_response(prompt):
-    inputs = tokenizer(prompt, return_tensors="pt")
-    output = model.generate(**inputs, do_sample=True)
+    inputs = tokenizer(prompt, return_tensors="pt").to("cuda:0")
+    output = model.generate(**inputs)
     return tokenizer.decode(output[0], skip_special_tokens=True)
