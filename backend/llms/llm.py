@@ -13,7 +13,8 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 # QLoRA model (4-bit quantized for limited VRAM)
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    load_in_4bit=True
+    load_in_4bit=True,
+    bnb_4bit_compute_dtype=torch.float16
 ).to("cuda:0")
 
 #model = torch.compile(model)
@@ -21,6 +22,6 @@ model = AutoModelForCausalLM.from_pretrained(
 #torch.set_num_threads(2)
 
 def generate_response(prompt):
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda:0")
-    output = model.generate(**inputs)
+    inputs = tokenizer(prompt, return_tensors="pt", max_length=2048, truncation=True).to("cuda:0")
+    output = model.generate(**inputs, max_length=2048)
     return tokenizer.decode(output[0], skip_special_tokens=True)
