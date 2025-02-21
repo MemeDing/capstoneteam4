@@ -15,6 +15,10 @@ git clone git@github.com:MemeDing/capstoneteam4.git
     venv/Scripts/activate
     ```
 
+   * If Windows gives an error about your policy not allowing scripts to be run, open Powershell as an administrator and run this command:
+   ```
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
 3. Run the backend:
     * **Linux:** Run *run-backend.sh*
     * **Windows:** Run *run-backend.bat*
