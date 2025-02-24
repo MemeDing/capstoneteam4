@@ -8,5 +8,5 @@ class HistoryEntry(BaseModel):
     timestamp: datetime
 
 class UserHistory(BaseModel):
-    user_id: str  # Assuming each user has a unique identifier
+    user_id: str
     history: List[HistoryEntry]
