@@ -3,6 +3,7 @@ from backend.models.history import UserHistory
 from backend.models.requests import TextRequest
 from backend.database import history_collection
 from backend.models.history import HistoryEntry
+from datetime import datetime
 
 router = APIRouter()
 
